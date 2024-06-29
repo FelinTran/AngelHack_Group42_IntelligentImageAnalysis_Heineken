@@ -178,3 +178,7 @@ p {
   border-radius: 10px;
   background: #FFF;
 }
+
+brands-detect {
+  padding: -8px;
+}
