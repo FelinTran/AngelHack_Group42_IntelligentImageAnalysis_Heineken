@@ -35,7 +35,7 @@ const indexRouter = require("./routes/index_router");
 app.use('/', indexRouter);
 
 app.get('/testing', function (req, res, next) {
-    res.status(200).send(compile('pages/index.hbs', {
+    res.status(200).send(compile('pages/info_page.hbs', {
         layout: 'index.hbs'
     }))
 })
