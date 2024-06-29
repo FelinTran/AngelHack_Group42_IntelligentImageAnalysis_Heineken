@@ -51,8 +51,9 @@ function handleFileSelect(event) {
 
 }
 
-document.getElementById('submit-btn').addEventListener('click', async (e) => {
+document.getElementById('add-btn').addEventListener('click', async (e) => {
     e.preventDefault();
+    document.getElementById("fileInput").click();
     await fetch('/upload/image', {
         method: 'POST',
         mode: 'no-cors',
