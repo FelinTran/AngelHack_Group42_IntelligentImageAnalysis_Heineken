@@ -36,7 +36,7 @@ router.post('/auth', function (req, res, next) {
 router.post('/upload/image', async (req, res, next) => {
     upload(req, res, (err) => {
         try {
-            
+            const event_name = req.event_name;
             const files = req.files['image'];
             const folder = req.folder || "root";
 
@@ -47,7 +47,7 @@ router.post('/upload/image', async (req, res, next) => {
 
                 // Create a new image document
                 const image = new Image({
-                    folder: folder,
+                    event_name: folder,
                     filename: originalname,
                     contentType: mimetype,
                     base64: base64
@@ -55,11 +55,21 @@ router.post('/upload/image', async (req, res, next) => {
 
                 image.save();
             })
+
         } catch (err) {
             next(err);
         }
-        res.status(200).json({ message: 'Files uploaded successfully' });
     });
+    
+    await fetch('http://yenthenas.ddns.net:5000/', {
+        method: 'POST',
+        mode: 'no-cors',
+    }).then(async (response) => {
+        let resp = await response.json()
+        console.log(resp)
+    })
+
+    res.status(200).json({ message: 'Files uploaded successfully' });
 })
 
 router.get('/logout', (req, res, next) => {

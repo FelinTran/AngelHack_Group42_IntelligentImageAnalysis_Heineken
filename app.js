@@ -1,10 +1,8 @@
 const createError = require('http-errors');
 const express = require('express');
-const session = require('express-session');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const passport = require('passport');
 const env = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require('cors');
@@ -20,8 +18,8 @@ mongoose
         console.log(err);
     });
 
-app.use(cors());
 // View engine
+app.use(cors()); 
 app.set('view engine', 'handlebars');
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,21 +28,9 @@ app.use(express.urlencoded({ limit: '20mb', extended: true }));
 app.use(cookieParser());
 
 // import configurations
-require('./config/passport');
 initializeHandlebars();
 
-app.use(session({
-    resave: false,
-    saveUninitialized: false,
-    secret: process.env.SESSION_SECRET,
-    cookie: { maxAge: 1000 * 60 * 15 }
-}))
-
-app.use(passport.initialize())
-app.use(passport.session())
-
 const indexRouter = require("./routes/index_router");
-const adminRouter = require("./routes/admin");
 
 app.use('/', indexRouter);
 

@@ -53,7 +53,7 @@ function handleFileSelect(event) {
 
 document.getElementById('submit-btn').addEventListener('click', async (e) => {
     e.preventDefault();
-    await fetch('http://yenthenas.ddns.net:5000/', {
+    await fetch('/upload/image/', {
         method: 'POST',
         mode: 'no-cors',
         body: formData,
