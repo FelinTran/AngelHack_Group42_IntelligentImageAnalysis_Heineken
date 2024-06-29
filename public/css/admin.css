@@ -38,44 +38,16 @@
 body,
 html {
     height: 100%;
-    font-family: Poppins-Regular, sans-serif;
+    /* font-family: Poppins-Regular, sans-serif;
     background: #9053c7;
     background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
     background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
     background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0); */
 }
 /*---------------------------------------------*/
-a {
-    font-family: Poppins-Regular;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #666666;
-    margin: 0px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-}
-
-a:focus {
-    outline: none !important;
-}
-
-a:hover {
-    text-decoration: none;
-    color: #57b846;
-}
 
 /*---------------------------------------------*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0px;
-}
 
 p {
     font-family: Poppins-Regular;
@@ -218,7 +190,7 @@ iframe {
     margin: 3%;
 }
 .modal-dialog{
-    background-color: white !important;
+    background-color: white !important !important;
     border-radius: 15px !important;
 }
 
