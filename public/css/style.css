@@ -47,7 +47,7 @@ body {
 
 /*---------Font family---------*/
 /*---Heading---*/
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: bold-font;
 }
 
@@ -97,7 +97,7 @@ p {
 .header-nav {
   border-bottom: 1px solid #DEE3E7;
   height: 10vh;
-  padding: 10px 28px;
+  padding: 10px 28px!important;
 }
 
 .search-container {
@@ -117,6 +117,7 @@ p {
   outline: none;
   flex: 1;
   font-family: inherit;
+  background: none;
 }
 
 .left-sidebar {
@@ -156,12 +157,6 @@ p {
   border-radius: 10px;
 }
 
-.uploaded-img {
-  width: 100%;
-  object-fit: contain;
-  border-radius: 7.5px;
-}
-
 .logos-detect img {
   width: 24px;
   height: 100%;
@@ -172,8 +167,15 @@ p {
   margin-right: 8px;
 }
 
-.key-elements{
-  background-color: white;
+table {
+  width: 390px;
+  border-collapse: collapse;
+  margin: 36px 0 26px 66px;
+  background: white;
   border-radius: 10px;
-  padding: 24px 24px;
+  padding: 24px;
+}
+
+th, td {
+  padding: 0 24px;
 }
