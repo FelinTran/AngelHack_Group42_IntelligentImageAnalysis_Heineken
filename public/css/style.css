@@ -1,3 +1,54 @@
+@charset "utf-8";
+
+/*--Colors--*/
+:root {
+    /* Colors */
+    --primary-0: #ffffff;
+    --primary-50: #f4f7f9;
+    --primary-100: #e1e1e1;
+    --primary-200: #cccccc;
+    --primary-300: #b2b2b2;
+    --primary-400: #999999;
+    --primary-500: #7f7f7f;
+    --primary-600: #666666;
+    --primary-700: #4c4c4c;
+    --primary-800: #191919;
+    --primary-900: #000000;
+    --scheme-accent: #3b8aff;
+    --feedback-error: #ff6d62;
+    --feedback-alert: #fdb022;
+    --feedback-success: #39f49d;
+}
+
+/*--Typography--*/
+/*---------Font family---------*/
+@font-face {
+  font-family: bold-font;
+  src: url("../fonts/Inter-Bold.otf");
+}
+
+@font-face {
+  font-family: semi-bold-font;
+  src: url("../fonts/Inter-SemiBold.otf");
+}
+
+@font-face {
+  font-family: medium-font;
+  src: url("../fonts/Inter-Medium.otf");
+}
+
+@font-face {
+  font-family: regular-font;
+  src: url("../fonts/Inter-Regular.otf");
+}
+
+/*---------Font family---------*/
+/*---Heading---*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: bold-font;
+}
+
+
 .upload-folders,
 .upload-folders * {
   box-sizing: border-box;
