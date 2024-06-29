@@ -1,18 +1,28 @@
 const router = require('express').Router();
-const passport = require('passport');
 const { isAuthenticated } = require("../middleware/auth")
 const { compile } = require("../config/handlebars");
 const multer = require('multer');
 const Analyze = require("../models/Analyze");
 const Event = require("../models/Event");
+const path = require('path');
 
 require("dotenv").config();
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage, limits: { fileSize: 20971520 } }).array('files');
 
+
+// Create the "files" directory if it doesn't exist
+const fs = require('fs');
+
+const dir = './files';
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+}
+
+
 router.get("/", function (req, res, next) {
-    res.redirect("/login");
+    res.redirect("/index");
 })
 
 router.get('/login', function (req, res, next) {
@@ -32,34 +42,45 @@ router.post('/auth', function (req, res, next) {
     })(req, res, next);
 });
 
+// router.post('/upload/image', upload.array('files'), async (req, res, next) => {
+
+//     await fetch('http://yenthenas.ddns.net:3000/', {
+//         method: 'POST',
+//         mode: 'no-cors',
+//     }).then(async (response) => {
+//         let resp = await response.json()
+//         console.log(resp)
+//     })
+
+//     res.status(200).json({ message: 'Files uploaded successfully' });
+// })
+
 router.post('/upload/image', async (req, res, next) => {
     upload(req, res, (err) => {
         try {
-            const files = req.files['image'];
+
+            const files = req.files;
+
+            console.log(files);
 
             files.map(file => {
-                const { originalname, mimetype, buffer } = file;
-                // Convert image buffer to base64
-                const base64 = buffer.toString('base64');
+                const filePath = path.join(__dirname, '../files', Date.now() + '_' + file.originalname);
 
-                // Create a new image document
-                const image = new Image({
-                    event_name: folder,
-                    filename: originalname,
-                    contentType: mimetype,
-                    base64: base64
-                });
+                // Write the file to the local filesystem
+                try {
+                    fs.writeFileSync(filePath, file.buffer);
+                } catch (err) {
+                    return next(err);
+                }
 
-                image.save();
             })
-
         } catch (err) {
             next(err);
         }
     });
-    
-    await fetch('http://yenthenas.ddns.net:5000/', {
-        method: 'POST',
+
+    await fetch('http://yenthenas.ddns.net:3000/', {
+        method: 'GET',
         mode: 'no-cors',
     }).then(async (response) => {
         let resp = await response.json()
@@ -67,7 +88,42 @@ router.post('/upload/image', async (req, res, next) => {
     })
 
     res.status(200).json({ message: 'Files uploaded successfully' });
+
 })
+
+// router.post('/upload/image', async (req, res, next) => {
+//     upload(req, res, (err) => {
+//         try {
+//             const files = req.files;
+//             console.log(files);
+
+//             files.forEach(file => {
+//                 // Define the file path
+//                 const filePath = path.join(__dirname, 'files', Date.now() + '_' + file.originalname);
+
+//                 // Write the file to the local filesystem
+//                 fs.writeFileSync(filePath, file.buffer, (err) => {
+//                     if (err) {
+//                         return next(err);
+//                     }
+//                 });
+//             })
+
+//         } catch (err) {
+//             next(err);
+//         }
+//     });
+
+//     // await fetch('http://yenthenas.ddns.net:5000/', {
+//     //     method: 'POST',
+//     //     mode: 'no-cors',
+//     // }).then(async (response) => {
+//     //     let resp = await response.json()
+//     //     console.log(resp)
+//     // })
+
+//     res.status(200).json({ message: 'Files uploaded successfully' });
+// })
 
 router.get('/logout', (req, res, next) => {
     req.logout((err) => {

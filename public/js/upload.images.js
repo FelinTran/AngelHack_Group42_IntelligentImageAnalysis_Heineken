@@ -42,7 +42,7 @@ function handleFileSelect(event) {
     formData = new FormData();
 
     Array.from(files).forEach(file => {
-        formData.append('image', file);
+        formData.append('files', file);
         const listItem = document.createElement('div');
         listItem.classList.add('text-success')
         listItem.textContent = file.name;
@@ -53,7 +53,7 @@ function handleFileSelect(event) {
 
 document.getElementById('submit-btn').addEventListener('click', async (e) => {
     e.preventDefault();
-    await fetch('/upload/image/', {
+    await fetch('/upload/image', {
         method: 'POST',
         mode: 'no-cors',
         body: formData,
