@@ -30,7 +30,7 @@ class Engine:
 
     def load_image(
         self,
-        image_path: Image
+        image_path: str
     ) -> None:
         self.input_image = Image.open(image_path).convert('RGB')
 

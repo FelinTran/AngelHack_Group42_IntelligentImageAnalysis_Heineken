@@ -51,7 +51,7 @@ class ImageAnalyzer:
 
     def run(
         self,
-        image_path: Image,
+        image_path: str,
     ):
         # Analyze each image:
         self.engine.load_image(image_path)
@@ -74,7 +74,7 @@ class ImageAnalyzer:
 
         end = time()
 
-        logger.info(f"Analyzed time: {end - start}")
+        logger.info(f"##### Analyzed time: {end - start}")
 
         return_output = {
             "product": product_output,

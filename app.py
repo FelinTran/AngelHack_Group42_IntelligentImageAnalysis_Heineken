@@ -32,27 +32,22 @@ class Analyze(Resource):
         return TODOS
     
     def post(self):
-        file = request.files.to_dict()['image']
-        filename = os.path.join(
-            app.config['UPLOAD_FOLDER'],
-            f"image.{file.filename.split('.')[-1]}"
-        )
-        file.save(filename)
-        # return request.form
-        # image_folder_path = app.config['UPLOAD_FOLDER']
-
-
+        filename = request.form.get('image')
+        # file = request.files.to_dict()['image']
+        # filename = os.path.join(
+        #     app.config['UPLOAD_FOLDER'],
+        #     f"image.{file.filename.split('.')[-1]}"
+        # )
+        # file.save(filename)
+        print("#####", filename)
         return_output = self.analyzer.run(filename)
-        os.remove(filename)
+        # os.remove(filename)
 
         return return_output
 
-def analyze_task(event_name, *kwargs):
-    print(event_name)
-    return None
 
 
 api.add_resource(Analyze, '/')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=True, port='3000')
