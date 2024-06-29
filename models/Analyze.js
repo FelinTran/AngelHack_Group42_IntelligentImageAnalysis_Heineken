@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const Analyze_Schema = new mongoose.Schema({
-    image_id: { type: String, required: true },
+    event_name: {type: String, required: true},
+    image_filename: { type: String, required: true },
     analyze_data: {
         logo: { type: Object },
         product: { type: Object },
@@ -9,7 +10,6 @@ const Analyze_Schema = new mongoose.Schema({
         posm: { type: Object },
         context: { type: Object },
     }
-
 },
     { timestamps: true })
 
