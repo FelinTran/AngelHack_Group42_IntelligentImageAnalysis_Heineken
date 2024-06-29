@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 
 const Analyze_Schema = new mongoose.Schema({
-    event_name: {type: String, required: true},
-    image_filename: { type: String, required: true },
+    filename: { type: String, required: true },
     analyze_data: {
         logo: { type: Object },
         product: { type: Object },
