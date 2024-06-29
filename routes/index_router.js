@@ -42,18 +42,6 @@ router.post('/auth', function (req, res, next) {
     })(req, res, next);
 });
 
-// router.post('/upload/image', upload.array('files'), async (req, res, next) => {
-
-//     await fetch('http://yenthenas.ddns.net:3000/', {
-//         method: 'POST',
-//         mode: 'no-cors',
-//     }).then(async (response) => {
-//         let resp = await response.json()
-//         console.log(resp)
-//     })
-
-//     res.status(200).json({ message: 'Files uploaded successfully' });
-// })
 
 router.post('/upload/image', async (req, res, next) => {
     upload(req, res, (err) => {
@@ -65,10 +53,12 @@ router.post('/upload/image', async (req, res, next) => {
 
             files.map(file => {
                 const filePath = path.join(__dirname, '../files', Date.now() + '_' + file.originalname);
+                const cachePath = path.join(__dirname, '../cache', Date.now() + '_' + file.originalname);
 
                 // Write the file to the local filesystem
                 try {
                     fs.writeFileSync(filePath, file.buffer);
+                    fs.writeFileSync(cachePath, file.buffer);
                 } catch (err) {
                     return next(err);
                 }
@@ -79,7 +69,7 @@ router.post('/upload/image', async (req, res, next) => {
         }
     });
 
-    await fetch('http://yenthenas.ddns.net:3000/', {
+    await fetch('http://localhost:3000/', {
         method: 'GET',
         mode: 'no-cors',
     }).then(async (response) => {
