@@ -12,6 +12,7 @@ const upload = multer({ storage: storage, limits: { fileSize: 20971520 } }).arra
 
 // Create the "files" directory if it doesn't exist
 const fs = require('fs');
+const { route } = require('../app');
 
 const dir = './files';
 if (!fs.existsSync(dir)) {
@@ -44,17 +45,42 @@ router.get("/info-page", function (req, res, next) {
     }))
 })
 
-router.get("/key-elements", function (req, res, next) {
+router.get("/key_elements", function (req, res, next) {
     res.status(200).send(compile('pages/key_elements.hbs', {
         title: 'Key Elements', layout: 'index.hbs'
     }))
 })
 
-router.get("/count-beer-drinkers", function (req, res, next) {
+router.get("/count_beer_drinkers", function (req, res, next) {
     res.status(200).send(compile('pages/count_beer_drinkers.hbs', {
         title: 'Count Beer Drinkers', layout: 'index.hbs'
     }))
 })
+
+router.get("/detect_emotions", function (req, res, next) {
+    res.status(200).send(compile('pages/detect_emotions.hbs', {
+        title: 'Detect Emotions', layout: 'index.hbs'
+    }))
+})
+
+router.get("/track_staff", function (req, res, next) {
+    res.status(200).send(compile('pages/track_staff.hbs', {
+        title: 'Track Staff', layout: 'index.hbs'
+    }))
+})
+
+router.get("/grade_store_presence", function (req, res, next) {
+    res.status(200).send(compile('pages/grade_store_presence.hbs', {
+        title: 'Grade Store Presence', layout: 'index.hbs'
+    }))
+})
+
+router.get("/detect_posm", function (req, res, next) {
+    res.status(200).send(compile('pages/detect_posm.hbs', {
+        title: 'Detect POSM', layout: 'index.hbs'
+    }))
+})
+
 
 router.post('/upload/image', async (req, res, next) => {
     var filePaths = [];
