@@ -83,7 +83,6 @@ router.get("/detect_posm", function (req, res, next) {
 
 
 router.post('/upload/image', async (req, res, next) => {
-    var filePaths = [];
     upload(req, res, (err) => {
         try {
             const files = req.files;

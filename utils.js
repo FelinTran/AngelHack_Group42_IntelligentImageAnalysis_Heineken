@@ -44,7 +44,5 @@ function count_Heineiken_Drinker(converted_obj) {
     return count;
 } //*
 
-function 
-
 
 module.exports = { convertObjectToArray }
