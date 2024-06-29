@@ -184,11 +184,8 @@ p {
   line-height: 120%;
 }
 
-.brands-detect {
-  padding: -8px;
-}
-
 .brands-detect img {
   width: 24px;
   height: 100%;
+  margin-right: -8px;
 }
