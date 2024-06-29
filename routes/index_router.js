@@ -44,26 +44,11 @@ router.get("/info-page", function (req, res, next) {
     }))
 })
 
-router.post('/analyze-result', async (req, res, next) => {
-    let filename = req.body.filename;
-    let result = req.body.result;
-    const newAnalyze = new Analyze({
-        filename: filename,
-        analyze_data: result,
-    })
-    await newAnalyze.save();
-
-    res.status(200).json({message: "Registered successfully!"});
-
-})
-
 router.post('/upload/image', async (req, res, next) => {
     var filePaths = [];
     upload(req, res, (err) => {
         try {
             const files = req.files;
-
-            console.log(files);
 
             files.map(file => {
                 const filePath = path.join(__dirname, '../files', Date.now() + '_' + file.originalname);
@@ -85,13 +70,17 @@ router.post('/upload/image', async (req, res, next) => {
 
     res.status(200).json({ message: 'Files uploaded successfully', filePaths: filePaths });
 
-    fetch(' http://localhost:3000/', {
+    await fetch(' http://localhost:3000/', {
         method: 'GET',
         mode: 'no-cors',
-    }).then(async (response) => {
-        let resp = response.json()
-        console.log(resp)
+    }).then(data => {
+        let data_ = data.json();
+        const newAnalyze = new Analyze({
+            filename: data_.filename,
+            analyze_data: data_.analyze_data
+        })
 
+        newAnalyze.save();
     })
 
 })
