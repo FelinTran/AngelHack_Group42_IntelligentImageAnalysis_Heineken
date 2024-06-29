@@ -1,17 +1,21 @@
 <div class="header">
   <div class="button">
-    <img class="search-lg" src="../../public/icons/search-lg.svg" />
-    <div class="button2">Search...</div>
+    <form class="search-form" action="/search" method="GET">
+      <input type="text" class="search-input" name="query" placeholder="Search..." />
+      <button type="submit" class="search-button">
+        <img src="/public/icons/search.svg" />
+      </button>
+    </form>
   </div>
-  <div class="frame-8">
-    <img class="home-05" src="home-05.svg" />
+  <div class="home-button">
+    <img class="home-button" src="/public/icons/home.svg" />
   </div>
   <div class="frame-38">
     <div class="navigation-actions">
       <div class="dropdown">
-        <img class="avatar" src="avatar0.png" />
+        <img class="avatar" src="/public/images/avatar.png" />
       </div>
     </div>
-    <img class="chevron-down" src="chevron-down.svg" />
+    <img class="chevron-down" src="/public/icons/chevron-down.svg" />
   </div>
 </div>
