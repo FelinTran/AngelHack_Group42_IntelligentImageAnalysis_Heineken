@@ -44,6 +44,18 @@ router.get("/info-page", function (req, res, next) {
     }))
 })
 
+router.get("/key-elements", function (req, res, next) {
+    res.status(200).send(compile('pages/key_elements.hbs', {
+        title: 'Key Elements', layout: 'index.hbs'
+    }))
+})
+
+router.get("/count-beer-drinkers", function (req, res, next) {
+    res.status(200).send(compile('pages/count_beer_drinkers.hbs', {
+        title: 'Count Beer Drinkers', layout: 'index.hbs'
+    }))
+})
+
 router.post('/upload/image', async (req, res, next) => {
     var filePaths = [];
     upload(req, res, (err) => {
