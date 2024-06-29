@@ -165,8 +165,7 @@ p {
   padding: 10px 16px;
   font-family: medium-font;
 }
-
-.key-elements {
+.container {
   display: flex;
   width: 392px;
   height: 488px;
@@ -175,8 +174,14 @@ p {
   align-items: flex-start;
   gap: 20px;
   flex-shrink: 0;
-  border-radius: 10px;
-  background: #FFF;
+}
+.key-elements {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
 }
 
 .brands-detect {

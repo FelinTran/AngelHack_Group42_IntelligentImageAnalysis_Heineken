@@ -40,6 +40,12 @@ app.get('/testing', function (req, res, next) {
     }))
 })
 
+app.get('/testing/upload', function (req, res, next) {
+    res.status(200).send(compile('pages/admin.hbs', {
+        layout: 'admin.hbs'
+    }))
+})
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
