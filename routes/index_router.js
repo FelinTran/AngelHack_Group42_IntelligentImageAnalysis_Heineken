@@ -58,11 +58,10 @@ router.post('/analyze-result', async (req, res, next) => {
 })
 
 router.post('/upload/image', async (req, res, next) => {
+    var filePaths = [];
     upload(req, res, (err) => {
         try {
             const files = req.files;
-
-            let filePaths = [];
 
             console.log(files);
 
@@ -92,6 +91,7 @@ router.post('/upload/image', async (req, res, next) => {
     }).then(async (response) => {
         let resp = response.json()
         console.log(resp)
+
     })
 
 })
