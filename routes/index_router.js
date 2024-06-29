@@ -3,7 +3,6 @@ const passport = require('passport');
 const { isAuthenticated } = require("../middleware/auth")
 const { compile } = require("../config/handlebars");
 const multer = require('multer');
-const Image = require("../models/Image");
 const Analyze = require("../models/Analyze");
 const Event = require("../models/Event");
 
@@ -36,9 +35,7 @@ router.post('/auth', function (req, res, next) {
 router.post('/upload/image', async (req, res, next) => {
     upload(req, res, (err) => {
         try {
-            const event_name = req.event_name;
             const files = req.files['image'];
-            const folder = req.folder || "root";
 
             files.map(file => {
                 const { originalname, mimetype, buffer } = file;
