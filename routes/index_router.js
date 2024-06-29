@@ -74,7 +74,7 @@ router.post('/upload/image', async (req, res, next) => {
         }
     });
 
-    await fetch(' http://10.147.18.90:3000/', {
+    await fetch(' http://localhost:3000/', {
         method: 'GET',
         mode: 'no-cors',
     }).then(async (response) => {
