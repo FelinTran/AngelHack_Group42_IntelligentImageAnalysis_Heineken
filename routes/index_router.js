@@ -31,6 +31,31 @@ router.get("/", function (req, res, next) {
     }))
 })
 
+router.get("/index", function (req, res, next) {
+    res.status(200).send(compile('pages/home.hbs', {
+        title: 'Home', layout: 'index.hbs'
+    }))
+})
+
+router.get("/info-page", function (req, res, next) {
+
+
+    res.status(200).send(compile('pages/info-page.hbs', {
+        title: 'Business Problem', layout: 'index.hbs'
+    }))
+})
+
+router.post('/analyze-result', async (req, res, next) => {
+    let filename = req.body.filename;
+    let result = req.body.result;
+    const newAnalyze = new Analyze({
+        filename: filename,
+        analyze_data: result,
+    })
+    newAnalyze.save();
+    
+})
+
 router.post('/upload/image', async (req, res, next) => {
     upload(req, res, (err) => {
         try {
@@ -64,10 +89,13 @@ router.post('/upload/image', async (req, res, next) => {
         method: 'GET',
         mode: 'no-cors',
     }).then(async (response) => {
-        let resp = await response.json()
-        console.log(resp)
+        let response = response.json()
+        console.log(response)
+
     })
 
 })
+
+
 
 module.exports = router;
