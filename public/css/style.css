@@ -184,8 +184,12 @@ p {
   line-height: 120%;
 }
 
-.brands-detect img {
+.logos-detect img {
   width: 24px;
   height: 100%;
   margin-right: -8px;
+}
+
+.brands-detect img {
+  margin-right: 8px;
 }
