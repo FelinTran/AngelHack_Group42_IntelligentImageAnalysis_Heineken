@@ -5,7 +5,7 @@ const { compile } = require("../config/handlebars");
 const multer = require('multer');
 const Image = require("../models/Image");
 const Analyze = require("../models/Analyze");
-const Folder = require("../models/Folder");
+const Event = require("../models/Event");
 
 require("dotenv").config();
 

@@ -11,8 +11,6 @@ const cors = require('cors');
 const fs = require("fs");
 const app = express();
 const {initializeHandlebars, compile} = require("./config/handlebars");
-const Payslip = require('./models/Payslip');
-
 env.config();
 
 mongoose
