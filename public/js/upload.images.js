@@ -4,25 +4,25 @@ document.getElementById('add-btn').addEventListener('click', handleFileSelect);
 
 const uploadContainer = document.getElementById('uploadContainer');
 
-// Drag and drop events
-uploadContainer.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    uploadContainer.classList.add('dragover');
-});
+// // Drag and drop events
+// uploadContainer.addEventListener('dragover', (e) => {
+//     e.preventDefault();
+//     e.stopPropagation();
+//     uploadContainer.classList.add('dragover');
+// });
 
-uploadContainer.addEventListener('dragleave', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    uploadContainer.classList.remove('dragover');
-});
+// uploadContainer.addEventListener('dragleave', (e) => {
+//     e.preventDefault();
+//     e.stopPropagation();
+//     uploadContainer.classList.remove('dragover');
+// });
 
-uploadContainer.addEventListener('drop', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    uploadContainer.classList.remove('dragover');
-    handleFileSelect(e);
-});
+// uploadContainer.addEventListener('drop', (e) => {
+//     e.preventDefault();
+//     e.stopPropagation();
+//     uploadContainer.classList.remove('dragover');
+//     handleFileSelect(e);
+// });
 
 function handleDateTime(event) {
     date = event.target.value;
