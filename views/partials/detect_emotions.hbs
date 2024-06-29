@@ -1,41 +1,35 @@
-<table class="count-beer-drinkers">
-        <thead>
-            <tr>
-                <th class="h3 column1">Detect Emotions</th>
-            </tr>
-            <tr> 
-                <th class="column1" style="width:316px"> 
-                    <div class="d-flex flew-row">
-                        <img src="images/icons/info-circle.svg" style="padding-right: 8px;">  <p class="subtext">Count the number of people in the images. Analyze the mood and tone of the images (emotional detection).</p>
-                    </div>
-                    </th>
-            </tr>
-            <tr>
-                <th class="column1">
-                    <p></p>
-                </th>
-            </tr>
-            <tr>
-                <th class="h4 column1">People</th>
-                <th class="column2">
-                    <p>5</p>
-                </th>
-            <tr>
-                <th class="column1">
-                    <p class="subtext">Happy</p>
-                </th>
-                <th class="column2"><p class="subtext">4</p></th>
-            </tr>
-            <tr>
-                <th class="column1">
-                    <p class="subtext">Sad</p>
-                </th>
-                <th class="column2"><p class="subtext">0</p></th>
-            </tr>
-            <tr>
-                <th class="column1">
-                    <p class="subtext">Neutral</p>
-                </th>
-                <th class="column2"><p class="subtext">1</p></th>
-            </tr>
-    </table>
+<div class="data-ctn">
+    <h3>Detect Emotions</h4>
+    <div class="description d-flex flex-row align-items-start">
+        <img src="/images/icons/info-circle.svg" alt="">
+        <p class="subtext ms-2">Count the number of people in the images. Analyze the mood and tone of the images (emotional detection).</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between mt-3">
+        <p style="font-family: bold-font">Total</p>
+        {{> brands}}
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p class="subtext">Happy</p>
+        <p>1</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p class="subtext">Angry</p>
+        <p>1</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p class="subtext">Enjoy</p>
+        <p>1</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p class="subtext">Relax</p>
+        <p>1</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p class="subtext">Neutral</p>
+        <p>1</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p class="subtext">Undefined</p>
+        <p>1</p>
+    </div>
+</div>
