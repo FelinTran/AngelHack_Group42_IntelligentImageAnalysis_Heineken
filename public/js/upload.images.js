@@ -1,6 +1,6 @@
 var formData = new FormData();
 
-document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+document.getElementById('add-btn').addEventListener('click', handleFileSelect);
 
 const uploadContainer = document.getElementById('uploadContainer');
 

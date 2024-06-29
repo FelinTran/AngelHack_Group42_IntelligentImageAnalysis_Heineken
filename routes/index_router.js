@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { isAuthenticated } = require("../middleware/auth")
 const { compile } = require("../config/handlebars");
 const multer = require('multer');
 const Analyze = require("../models/Analyze");
@@ -27,31 +26,14 @@ if (!fs.existsSync(cachedir)) {
 
 
 router.get("/", function (req, res, next) {
-    res.redirect("/index");
-})
-
-router.get('/login', function (req, res, next) {
-    res.status(200).send(compile('pages/login.hbs', {
-        title: 'Payslip', layout: 'login.hbs'
+    res.status(200).send(compile('pages/home.hbs', {
+        title: 'Home', layout: 'index.hbs'
     }))
 })
-
-router.post('/auth', function (req, res, next) {
-    passport.authenticate('local', function (err, user, info) {
-        if (err) return next(err);
-        if (!user) return res.status(401).json({ message: "Unauthorized" });
-        req.logIn(user, (err) => {
-            if (err) return next(err);
-            if (user.Admin) res.redirect('/admin'); else res.redirect('/payslip/' + user.Emp_Code)
-        });
-    })(req, res, next);
-});
-
 
 router.post('/upload/image', async (req, res, next) => {
     upload(req, res, (err) => {
         try {
-
             const files = req.files;
 
             console.log(files);
@@ -119,13 +101,5 @@ router.post('/upload/image', async (req, res, next) => {
 
 //     res.status(200).json({ message: 'Files uploaded successfully' });
 // })
-
-router.get('/logout', (req, res, next) => {
-    req.logout((err) => {
-        req.session.destroy();
-        if (err) return next(err);
-        res.redirect('/login');
-    });
-});
 
 module.exports = router;
