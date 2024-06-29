@@ -20,6 +20,11 @@ if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
 
+const cachedir = "./cache";
+if (!fs.existsSync(cachedir)) {
+    fs.mkdirSync(cachedir);
+}
+
 
 router.get("/", function (req, res, next) {
     res.redirect("/index");
@@ -69,7 +74,7 @@ router.post('/upload/image', async (req, res, next) => {
         }
     });
 
-    await fetch('http://localhost:3000/', {
+    await fetch(' http://10.147.18.90:3000/', {
         method: 'GET',
         mode: 'no-cors',
     }).then(async (response) => {
