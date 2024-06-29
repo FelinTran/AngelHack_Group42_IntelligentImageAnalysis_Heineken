@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { compile } = require("../config/handlebars");
 const multer = require('multer');
 const Analyze = require("../models/Analyze");
-const Event = require("../models/Event");
 const path = require('path');
 
 require("dotenv").config();
@@ -52,8 +51,10 @@ router.post('/analyze-result', async (req, res, next) => {
         filename: filename,
         analyze_data: result,
     })
-    newAnalyze.save();
-    
+    await newAnalyze.save();
+
+    res.status(200).json({message: "Registered successfully!"});
+
 })
 
 router.post('/upload/image', async (req, res, next) => {
@@ -89,9 +90,8 @@ router.post('/upload/image', async (req, res, next) => {
         method: 'GET',
         mode: 'no-cors',
     }).then(async (response) => {
-        let response = response.json()
-        console.log(response)
-
+        let resp = response.json()
+        console.log(resp)
     })
 
 })
