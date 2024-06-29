@@ -162,18 +162,14 @@ p {
   border-radius: 7.5px;
 }
 
-.button {
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-family: medium-font;
-}
-.brands-detect img {
+.logos-detect img {
   width: 24px;
   height: 100%;
   margin-right: -8px;
+}
+
+.brands-detect img {
+  margin-right: 8px;
 }
 
 .key-elements{
