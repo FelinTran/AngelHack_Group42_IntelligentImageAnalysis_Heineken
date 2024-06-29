@@ -65,6 +65,7 @@ p {
   font-family: semibold-font;
   border-radius: 8px;
   color: white;
+  border: none;
 }
 
 .sec-btn {
@@ -164,18 +165,19 @@ p {
 }
 
 .brands-detect img {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 table {
-  width: 390px;
-  border-collapse: collapse;
-  margin: 36px 0 26px 66px;
-  background: white;
-  border-radius: 10px;
-  padding: 24px;
+  width: 342px;
 }
 
-th, td {
-  padding: 0 24px;
+.data-ctn {
+  background: white;
+  border-radius: 10px;
+  width: 30%;
+  padding: 24px!important;
+  margin-top: 36px;
+  margin-left: 66px;
+  overflow: hidden;
 }
