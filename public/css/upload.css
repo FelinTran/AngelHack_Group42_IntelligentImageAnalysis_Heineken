@@ -2,11 +2,11 @@
 .upload-container {
     text-align: center;
     display: inline-block;
-    padding: 6px 12px;
+    padding: 8px 16px;
     cursor: pointer;
     font-family: medium-font;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.15;
     color: #666666;
     width: 100%;
     background: #e6e6e6;
