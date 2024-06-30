@@ -1,20 +1,3 @@
-const moment = require('moment');
-
-function convertObjectToArray(obj) {
-    return Object.keys(obj).map(key => obj[key]);
-} //!
-
-function convert(obj) {
-    const newObj = {
-        product: convertObjectToArray(obj.product),
-        human: convertObjectToArray(obj.human),
-        posm: convertObjectToArray(obj.posm),
-        context: obj.context
-    }
-
-    return newObj;
-} //*
-
 function findBrand(converted_obj, brand) {
     for (let i in converted_obj.product) {
         if (converted_obj.product[i].brand === brand)
@@ -46,7 +29,7 @@ function count_Heineiken_Drinker(converted_obj) {
     return count;
 } //*
 
-function count_emotions(converted_obj){
+function count_emotions(converted_obj) {
     let Emotions = {
         "happy": 0,
         "angry": 0,
@@ -56,17 +39,17 @@ function count_emotions(converted_obj){
         "undefined": 0,
     }
 
-    for (let i in converted_obj.human){
+    for (let i in converted_obj.human) {
         let human = converted_obj.human[i];
-        if (human.emotion ==='happy') Emotions.happy++;
-        if (human.emotion ==='angry') Emotions.angry++;
-        if (human.emotion ==='enjoy') Emotions.enjoy++;
-        if (human.emotion ==='relax') Emotions.relax++;
-        if (human.emotion ==='neutral') Emotions.neutral++;
-        if (human.emotion ==='undefined') Emotions.undefined++;
+        if (human.emotion === 'happy') Emotions.happy++;
+        if (human.emotion === 'angry') Emotions.angry++;
+        if (human.emotion === 'enjoy') Emotions.enjoy++;
+        if (human.emotion === 'relax') Emotions.relax++;
+        if (human.emotion === 'neutral') Emotions.neutral++;
+        if (human.emotion === 'undefined') Emotions.undefined++;
     }
 
     return Emotions;
 }
 
-module.exports = [convert, getBrands, count_Heineiken_Drinker, count_emotions]
+module.exports = {getBrands, count_Heineiken_Drinker, count_emotions }
