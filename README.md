@@ -21,15 +21,14 @@ In this project, we use 4 models, of which 2 are responsible for specifically de
 Run two terminals:
 -  Expressjs: ```npm start```
 -  Python: ```python app.py```
--  Open your web browser and visit http://localhost:5000
+-  Open your web browser and visit ```http://localhost:5000```
 
 ### Testing
 We use Jest for testing. To run tests: Go to ```app.js```, and change the Business Problem you want to be tested in the testing route.
+
 E.g: 
-```
 app. get('/testing', function (req, res, next) {
-    res.status(200).send(compile('pages/info_page.hbs', {
+    res.status(200).send(compile('pages/```info_page.hbs```', {
         layout: 'index.hbs'
     }))
 })
-```
