@@ -20,11 +20,10 @@ class ProductDetector:
             'beer crate.',
             'beer bottle.',
             'beer canned.',
-            'canned beer.',
-            'bottle.',
+            # 'canned beer.',
+            # 'bottle.',
             'canned.',
             'crate.',
-            'bottle.'
         ]
         self.brand = [
             'bivina',

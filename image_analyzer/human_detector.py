@@ -42,7 +42,7 @@ class HumanDetector:
                 input_image=im
             )
             role = self.engine.classify(
-                labels=['drinker', 'promotion girl', 'seller', 'buyer'],
+                labels=['drinker', 'promotion girl', 'seller', 'buyer', 'staff'],
                 input_image=im
             )
             return_output[idx] = {

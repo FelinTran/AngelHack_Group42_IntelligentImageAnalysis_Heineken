@@ -29,8 +29,24 @@ class Analyze(Resource):
         )
 
     def get(self):
-        return TODOS
-    
+        cache_path = 'AngelHack_Group42_IntelligentImageAnalysis_Heineken/cache'
+        cache_file = os.listdir(cache_path)
+        if len(cache_file) == 1:
+            print("Cache image is founded")
+            filename = os.path.join(
+                cache_path,
+                cache_file[0]
+            )
+            return_output = self.analyzer.run(filename)
+            print("Finish analyze, remove cache image")
+            os.remove(filename)
+
+            return return_output
+        elif len(cache_file) > 1:
+            return abort(500, message="multiple cache image")
+        elif len(cache_file) == 0:
+            return abort(500, message="no cache image is founded")
+
     def post(self):
         filename = request.form.get('image')
         # file = request.files.to_dict()['image']

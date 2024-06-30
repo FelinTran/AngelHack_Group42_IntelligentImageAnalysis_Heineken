@@ -9,14 +9,14 @@ class POSMDetector:
         self.engine = engine
         self.posm = [
             'ice bucket.',
-            'ice box.',
+            # 'ice box.',
             'box.',
             'frigde.',
-            'signage.',
+            # 'signage.',
             'billboard.',
             'poster.',
             'standee.',
-            'tent card.',
+            # 'tent card.',
             'display stand.',
             'tabletop.',
             'parasol.'
