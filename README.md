@@ -1,4 +1,4 @@
-# HachHCMC - Heineken's Intelligent Image Analyzer
+# HackHCMC - Heineken's Intelligent Image Analyzer
 Welcome to the HEINEKEN Vietnam Brand Experience Analyzer! This project aims to revolutionize brand experience tracking by leveraging advanced image analysis to automatically detect key elements such as brand logos, products, POSM, consumer activities, and image contexts. Our solution provides actionable insights to enhance brand visibility and optimize marketing efforts.
 
 In this project, we use 4 models, of which 2 are responsible for specifically detecting cartons and people. On the other hand, we use two ZeroShot models to perform classification and detection tasks respectively.
