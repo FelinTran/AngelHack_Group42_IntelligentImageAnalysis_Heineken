@@ -121,4 +121,4 @@ function detect_emotions(obj)
 }
 
 
-module.exports = { convertObjectToArray, convert, getBrands, findBrand, count_emotions, countLabel, detect_emotions}
+module.exports = { convertObjectToArray, convert, getBrands, findBrand, count_emotions, countLabel, detect_emotions, count_Heineiken_Drinker}
