@@ -52,4 +52,26 @@ function count_emotions(converted_obj) {
     return Emotions;
 }
 
-module.exports = {getBrands, count_Heineiken_Drinker, count_emotions }
+function countLabel(converted_obj) {
+    let Label = {
+        carton_box: 0,
+        beer_crate: 0,
+        beer_bottle: 0,
+        canned_beer: 0,
+        crate: 0,
+    }
+
+    for (let i in converted_obj.product) {
+        let product = converted_obj.product[i];
+        if (product.label === "carton box") Label.carton_box++;
+        if (product.label ===  "beer crate") Label.beer_crate++;
+        if (product.label === "beer bottle") Label.beer_bottle++;
+        if (product.label === "canned beer" || product.label === "canned" || product.label === "canned") Label.canned_beer++;
+        if (product.label === 'undefined') Label.crate++;
+    }
+
+    return Label;
+
+}
+
+module.exports = { getBrands, count_Heineiken_Drinker, count_emotions, countLabel}
