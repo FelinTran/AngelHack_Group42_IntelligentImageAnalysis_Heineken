@@ -51,7 +51,7 @@ router.get("/key_elements", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/key_elements.hbs', {
-        title: 'Key Elements', layout: 'index.hbs', data: analyze_data
+        title: 'Key Elements', layout: 'index.hbs', data: analyze_data, filename: filename
     }))
 })
 
@@ -59,7 +59,7 @@ router.get("/count_beer_drinkers", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/count_beer_drinkers.hbs', {
-        title: 'Count Beer Drinkers', layout: 'index.hbs', data: analyze_data
+        title: 'Count Beer Drinkers', layout: 'index.hbs', data: analyze_data, filename: filename
     }))
 })
 
@@ -67,7 +67,7 @@ router.get("/detect_emotions", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/detect_emotions.hbs', {
-        title: 'Detect Emotions', layout: 'index.hbs', data: analyze_data
+        title: 'Detect Emotions', layout: 'index.hbs', data: analyze_data, filename: filename
     }))
 })
 
@@ -75,7 +75,7 @@ router.get("/track_staff", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/track_staff.hbs', {
-        title: 'Track Staff', layout: 'index.hbs', data: analyze_data
+        title: 'Track Staff', layout: 'index.hbs', data: analyze_data, filename: filename
     }))
 })
 
@@ -83,7 +83,7 @@ router.get("/grade_store_presence", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/grade_store_presence.hbs', {
-        title: 'Grade Store Presence', layout: 'index.hbs', data: analyze_data
+        title: 'Grade Store Presence', layout: 'index.hbs', data: analyze_data, filename: filename
     }))
 })
 
@@ -91,7 +91,7 @@ router.get("/detect_posm", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/detect_posm.hbs', {
-        title: 'Detect POSM', layout: 'index.hbs', data: analyze_data
+        title: 'Detect POSM', layout: 'index.hbs', data: analyze_data, filename: filename
     }))
 })
 
