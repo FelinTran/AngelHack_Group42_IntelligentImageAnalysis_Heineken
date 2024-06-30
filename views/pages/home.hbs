@@ -6,18 +6,16 @@
             <div class="col"></div> 
             <div class="col">
                 {{#each data}}
-                {{#each this}}
                 <div class="img-ctn flex-column">
                     <div class="d-flex flex-row align-items-center justify-content-between">
                         <div class="d-flex">
                             <img src="/images/icons/image.svg" alt="" />
-                            <p class="img-name" style="padding-left: 8px; margin: 0;">{{filename}}</p>
+                            <p class="img-name" style="padding-left: 8px; margin: 0;">{{this}}</p>
                         </div>
                         <img src="/images/icons/dots.svg" class="justify-content-end" alt="" />
                     </div>
-                    <img src={{filename}} class="upload-img" style="padding-top: 10px" alt=""/>
+                    <img src={{this}} class="upload-img" style="padding-top: 10px" alt=""/>
                 </div>
-            {{/each}}
             {{/each}}
             </div>
         </div>
