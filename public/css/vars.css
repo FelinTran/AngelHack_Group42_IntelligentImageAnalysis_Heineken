@@ -1,0 +1,24 @@
+/* Figma Styles of your File */
+:root {
+    /* Colors */
+    --primary-0: #ffffff;
+    --primary-50: #f4f7f9;
+    --primary-100: #e1e1e1;
+    --primary-200: #cccccc;
+    --primary-300: #b2b2b2;
+    --primary-400: #999999;
+    --primary-500: #7f7f7f;
+    --primary-600: #666666;
+    --primary-700: #4c4c4c;
+    --primary-800: #191919;
+    --primary-900: #000000;
+    --scheme-accent: #3b8aff;
+    --feedback-error: #ff6d62;
+    --feedback-alert: #fdb022;
+    --feedback-success: #39f49d;
+  
+    /* Fonts */
+    /* Effects */
+    --button-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  }
+  

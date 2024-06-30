@@ -1,0 +1,69 @@
+<div class="data-ctn">
+    <h3>Key Elements</h4>
+    <div class="description d-flex flex-row align-items-start">
+        <img src="/images/icons/info-circle.svg" alt="">
+        <p class="subtext ms-2">Here are the image analysis results for 5 key elements.</p>
+    </div>
+    {{!-- Logos --}}
+    <div class="d-flex flex-row justify-content-between mt-3">
+        <p style="font-family: bold-font">Logos</p>
+        <div class="logos-detect flex-row">
+            {{#each logo}}
+                <img src={{this}} alt="">
+            {{/each}}
+        </div>
+    </div>
+    {{!-- Product --}}
+    <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">Product</p>
+        <p>{{data.product.length}}</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p style="sub-text">Carton box</p>
+        <p>{{countLabel.carton_box}}</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p style="sub-text">Beer crate</p>
+        <p>{{countLabel.beer_crate}}</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p style="sub-text">Beer bottle</p>
+        <p>{{countLabel.beer_bottle}}</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p style="sub-text">Beer canned</p>
+        <p>{{countLabel.beer_canned}}</p>
+    </div>
+    {{!-- Human --}}
+    <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">Human</p>
+        <p>{{data.human.length}}</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p style="sub-text">Emotions</p>
+        <p>{{#each detect_emotions}} {{this}}, {{/each}}</p>
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <p style="sub-text">Human Action</p>
+        <p>Drinking</p>
+    </div>
+    {{!-- POSM --}}
+    <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">POSM</p>
+        <p>{{data.posm.length}}</p>
+    </div>
+    {{!-- Context --}}
+    <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">Location</p>
+        <p>{{data.context.context}}</p>
+    </div>
+    {{!-- Action --}}
+     <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">Event</p>
+        <p>{{data.context.action}}</p>
+    </div>
+     <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">Environment</p>
+        <p>{{data.context.environment}}</p>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+@import "./style.css";
+.upload-container {
+    text-align: center;
+    display: inline-block;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: medium-font;
+    font-size: 16px;
+    line-height: 1.15;
+    color: #666666;
+    width: 100%;
+    background: #e6e6e6;
+    height: auto;
+    border-radius: 10px;
+}
+
+.drop-zone {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.drop-zone p {
+    margin: 0;
+    font-size: 16px;
+    color: #888;
+}
+
+.drop-zone.highlight {
+    border-color: #333;
+}
+
+
+input[type="file"] {
+    display: none;
+}
