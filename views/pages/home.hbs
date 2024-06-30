@@ -2,7 +2,7 @@
     {{> header}}
     <div class="d-flex flex-row">
         {{> left_sidebar}}
-        <div class="container">
+        <div class="container mt-4">
             <div class="col"></div> 
             <div class="col">
                 {{#each data}}
@@ -10,7 +10,7 @@
                     <div class="d-flex flex-row align-items-center justify-content-between">
                         <div class="d-flex">
                             <img src="/images/icons/image.svg" alt="" />
-                            <p class="img-name" style="padding-left: 8px; margin: 0;">{{this}}</p>
+                            <p class="img-name" style="padding-left: 8px; margin: 0; max-width: 183px; overflow: hidden">{{this}}</p>
                         </div>
                         <img src="/images/icons/dots.svg" class="justify-content-end" alt="" />
                     </div>

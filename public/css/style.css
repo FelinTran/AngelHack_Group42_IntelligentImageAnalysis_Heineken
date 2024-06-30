@@ -167,6 +167,7 @@ p {
   object-fit: fit;
   padding: 16px 16px;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .img-ctn img.upload-img {
