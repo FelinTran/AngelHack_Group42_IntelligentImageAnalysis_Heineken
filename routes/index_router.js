@@ -9,10 +9,9 @@ require("dotenv").config();
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage, limits: { fileSize: 20971520 } }).array('files');
 
-
 // Create the "files" directory if it doesn't exist
 const fs = require('fs');
-const { route } = require('../app');
+const { data } = require('jquery');
 
 const dir = './files';
 if (!fs.existsSync(dir)) {
@@ -105,10 +104,9 @@ router.post('/upload/image', async (req, res, next) => {
             next(err);
         }
     });
+    
     console.log(filePaths)
-    res.status(200).json({ message: 'Files uploaded successfully', filePaths: filePaths });
-
-    await fetch(' http://localhost:3000/', {
+    let data = await fetch(' http://localhost:3000/', {
         method: 'GET',
         mode: 'no-cors',
     }).then(async (data) => {
@@ -118,9 +116,12 @@ router.post('/upload/image', async (req, res, next) => {
             filename: filePaths[0],
             analyze_data: data_
         })
-
         newAnalyze.save();
+        return data_;
     })
+
+    console.log(data);
+    res.status(200).json({ message: 'Files uploaded successfully', filePath: filePaths[0], data: data });
 
 })
 
