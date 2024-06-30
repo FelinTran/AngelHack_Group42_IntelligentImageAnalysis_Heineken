@@ -30,52 +30,68 @@ router.get("/", async function (req, res, next) {
 
 router.get("/index", async function (req, res, next) {
     let analyze_data = await Analyze.find();
+    let filenames = [];
+    for (let i in analyze_data)
+        {
+            filenames.push(analyze_data[i].filename)
+        }
     res.status(200).send(compile('pages/home.hbs', {
-        title: 'Home', layout: 'index.hbs', data: analyze_data
+        title: 'Home', layout: 'index.hbs', data: filenames
     }))
 })
 
-router.get("/info-page", async function (req, res, next) {
+// router.get("/info-page", async function (req, res, next) {
 
+//     res.status(200).send(compile('pages/info-page.hbs', {
+//         title: 'Business Problem', layout: 'index.hbs'
+//     }))
+// })
 
-    res.status(200).send(compile('pages/info-page.hbs', {
-        title: 'Business Problem', layout: 'index.hbs'
-    }))
-})
-
-router.get("/key_elements", function (req, res, next) {
+router.get("/key_elements", async function (req, res, next) {
+    let filename = req.query.filename;
+    let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/key_elements.hbs', {
-        title: 'Key Elements', layout: 'index.hbs'
+        title: 'Key Elements', layout: 'index.hbs', data: analyze_data
     }))
 })
 
-router.get("/count_beer_drinkers", function (req, res, next) {
+router.get("/count_beer_drinkers", async function (req, res, next) {
+    let filename = req.query.filename;
+    let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/count_beer_drinkers.hbs', {
-        title: 'Count Beer Drinkers', layout: 'index.hbs'
+        title: 'Count Beer Drinkers', layout: 'index.hbs', data: analyze_data
     }))
 })
 
-router.get("/detect_emotions", function (req, res, next) {
+router.get("/detect_emotions", async function (req, res, next) {
+    let filename = req.query.filename;
+    let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/detect_emotions.hbs', {
-        title: 'Detect Emotions', layout: 'index.hbs'
+        title: 'Detect Emotions', layout: 'index.hbs', data: analyze_data
     }))
 })
 
-router.get("/track_staff", function (req, res, next) {
+router.get("/track_staff", async function (req, res, next) {
+    let filename = req.query.filename;
+    let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/track_staff.hbs', {
-        title: 'Track Staff', layout: 'index.hbs'
+        title: 'Track Staff', layout: 'index.hbs', data: analyze_data
     }))
 })
 
-router.get("/grade_store_presence", function (req, res, next) {
+router.get("/grade_store_presence", async function (req, res, next) {
+    let filename = req.query.filename;
+    let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/grade_store_presence.hbs', {
-        title: 'Grade Store Presence', layout: 'index.hbs'
+        title: 'Grade Store Presence', layout: 'index.hbs', data: analyze_data
     }))
 })
 
-router.get("/detect_posm", function (req, res, next) {
+router.get("/detect_posm", async function (req, res, next) {
+    let filename = req.query.filename;
+    let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/detect_posm.hbs', {
-        title: 'Detect POSM', layout: 'index.hbs'
+        title: 'Detect POSM', layout: 'index.hbs', data: analyze_data
     }))
 })
 
