@@ -7,21 +7,23 @@
             <div class="col-11">
                 <!-- Import image container here -->
                 {{#each data}}
+                {{#each this}}
                 <div class="col img-ctn flex-column">
-                <div class="d-flex flex-row align-items-center justify-content-between">
-                <div class="d-flex">
-                <img src="/images/icons/image.svg" alt="" />
-                <p class="img-name" style="padding-left: 8px; margin: 0;">{{this.filename}}</p>
-                </div>
-                <img src="/images/icons/dots.svg" class="justify-content-end" alt="" />
-                </div>
-                <img
+                    <div class="d-flex flex-row align-items-center justify-content-between">
+                        <div class="d-flex">
+                            <img src="/images/icons/image.svg" alt="" />
+                            <p class="img-name" style="padding-left: 8px; margin: 0;">{{filename}}</p>
+                        </div>
+                        <img src="/images/icons/dots.svg" class="justify-content-end" alt="" />
+                    </div>
+                    <img
                     class="uploaded-img"
-                    src={{this.filename}}
+                    src={{filename}}
                     style="padding-top: 10px"
                     alt=""
-                />
-</div>
+                    />
+                </div>
+                {{/each}}
                 {{/each}}
             </div>
         </div>
