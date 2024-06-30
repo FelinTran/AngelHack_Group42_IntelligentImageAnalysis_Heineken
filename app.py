@@ -29,9 +29,9 @@ class Analyze(Resource):
         )
 
     def get(self):
-        cache_path = 'AngelHack_Group42_IntelligentImageAnalysis_Heineken/cache'
+        cache_path = 'cache'
         cache_file = os.listdir(cache_path)
-        if len(cache_file) == 1:
+        if len(cache_file) == 2:
             print("Cache image is founded")
             filename = os.path.join(
                 cache_path,
@@ -42,9 +42,9 @@ class Analyze(Resource):
             os.remove(filename)
 
             return return_output
-        elif len(cache_file) > 1:
+        elif len(cache_file) > 2:
             return abort(500, message="multiple cache image")
-        elif len(cache_file) == 0:
+        elif len(cache_file) == 1:
             return abort(500, message="no cache image is founded")
 
     def post(self):
