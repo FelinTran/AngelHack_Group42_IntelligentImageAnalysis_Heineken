@@ -6,30 +6,34 @@
     </div>
     <div class="d-flex flex-row justify-content-between mt-3">
         <p style="font-family: bold-font">Total</p>
-        {{> brands}}
+        <div class="logos-detect flex-row">
+            {{#each logo}}
+                <img src={{this}} alt="">
+            {{/each}}
+        </div>
     </div>
     <div class="d-flex flex-row justify-content-between">
         <p class="subtext">Happy</p>
-        <p>1</p>
+        <p>{{detect_emotions.happy}}</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
         <p class="subtext">Angry</p>
-        <p>1</p>
+        <p>{{detect_emotions.angry}}</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
         <p class="subtext">Enjoy</p>
-        <p>1</p>
+        <p>{{detect_emotions.Enjoy}}</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
         <p class="subtext">Relax</p>
-        <p>1</p>
+        <p>{{detect_emotions.relax}}</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
         <p class="subtext">Neutral</p>
-        <p>1</p>
+        <p>{{detect_emotions.neutral}}</p>
     </div>
-    <div class="d-flex flex-row justify-content-between">
+    {{!-- <div class="d-flex flex-row justify-content-between">
         <p class="subtext">Undefined</p>
-        <p>1</p>
-    </div>
+        <p>{{detect_emotions.undefined}}</p>
+    </div> --}}
 </div>

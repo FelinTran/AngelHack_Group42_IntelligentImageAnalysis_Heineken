@@ -50,7 +50,8 @@ router.get("/key_elements", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({ filename: filename })
     res.status(200).send(compile('pages/key_elements.hbs', {
-        title: 'Key Elements', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename, logo: getBrands(convert(analyze_data.analyze_data)),
+        title: 'Key Elements', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename, 
+        logo: getBrands(convert(analyze_data.analyze_data)),
         countLabel: countLabel(convert(analyze_data.analyze_data)),
         detect_emotions: detect_emotions(convert(analyze_data.analyze_data))
     }))
@@ -69,8 +70,10 @@ router.get("/count_beer_drinkers", async function (req, res, next) {
 router.get("/detect_emotions", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({ filename: filename })
+    console.log(count_emotions(convert(analyze_data.analyze_data)))
     res.status(200).send(compile('pages/detect_emotions.hbs', {
-        title: 'Detect Emotions', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename, logo: getBrands(convert(analyze_data.analyze_data))
+        title: 'Detect Emotions', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename, logo: getBrands(convert(analyze_data.analyze_data)),
+        detect_emotions: count_emotions(convert(analyze_data.analyze_data))
     }))
 })
 
