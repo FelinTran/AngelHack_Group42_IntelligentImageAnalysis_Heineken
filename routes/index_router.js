@@ -87,13 +87,13 @@ router.post('/upload/image', async (req, res, next) => {
             const files = req.files;
 
             files.map(file => {
-                const filePath = path.join('/images/files', Date.now() + '_' + file.originalname);
+                const filePath = path.join(__dirname, '../public/images/files', Date.now() + '_' + file.originalname);
                 const cachePath = path.join(__dirname, '../cache', Date.now() + '_' + file.originalname);
                 // Write the file to the local filesystem
                 try {
                     fs.writeFileSync(filePath, file.buffer);
                     fs.writeFileSync(cachePath, file.buffer);
-                    filePaths.push(filePath);
+                    filePaths.push(path.join('/images/files', Date.now() + '_' + file.originalname));
                 } catch (err) {
                     return next(err);
                 }
