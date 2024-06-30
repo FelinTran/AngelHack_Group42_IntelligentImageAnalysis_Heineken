@@ -48,7 +48,7 @@ function handleFileSelect(event) {
 
 document.getElementById('submit-btn').addEventListener('click', async (e) => {
     e.preventDefault();
-    await fetch('/upload/image', {
+    let data = await fetch('/upload/image', {
         method: 'POST',
         body: formData,
     })
@@ -57,5 +57,6 @@ document.getElementById('submit-btn').addEventListener('click', async (e) => {
             alert(resp.message)
             console.log(resp)
         })
-        .catch(error => console.error('Error:', error));
+
+    localStorage.setItem('data', data);
 })

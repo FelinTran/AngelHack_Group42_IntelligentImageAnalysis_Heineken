@@ -13,7 +13,7 @@ const upload = multer({ storage: storage, limits: { fileSize: 20971520 } }).arra
 const fs = require('fs');
 const { data } = require('jquery');
 
-const dir = './files';
+const dir = './public/images/files';
 if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
@@ -24,19 +24,18 @@ if (!fs.existsSync(cachedir)) {
 }
 
 
-router.get("/", function (req, res, next) {
+router.get("/", async function (req, res, next) {
+    res.redirect('/index');
+})
+
+router.get("/index", async function (req, res, next) {
+    let analyze_data = await Analyze.find();
     res.status(200).send(compile('pages/home.hbs', {
-        title: 'Home', layout: 'index.hbs'
+        title: 'Home', layout: 'index.hbs', data: analyze_data
     }))
 })
 
-router.get("/index", function (req, res, next) {
-    res.status(200).send(compile('pages/home.hbs', {
-        title: 'Home', layout: 'index.hbs'
-    }))
-})
-
-router.get("/info-page", function (req, res, next) {
+router.get("/info-page", async function (req, res, next) {
 
 
     res.status(200).send(compile('pages/info-page.hbs', {
@@ -88,7 +87,7 @@ router.post('/upload/image', async (req, res, next) => {
             const files = req.files;
 
             files.map(file => {
-                const filePath = path.join(__dirname, '../files', Date.now() + '_' + file.originalname);
+                const filePath = path.join('/images/files', Date.now() + '_' + file.originalname);
                 const cachePath = path.join(__dirname, '../cache', Date.now() + '_' + file.originalname);
                 // Write the file to the local filesystem
                 try {
@@ -104,7 +103,7 @@ router.post('/upload/image', async (req, res, next) => {
             next(err);
         }
     });
-    
+
     console.log(filePaths)
     let data = await fetch(' http://localhost:3000/', {
         method: 'GET',

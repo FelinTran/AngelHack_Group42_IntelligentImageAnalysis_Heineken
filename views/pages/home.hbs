@@ -6,7 +6,23 @@
             <div class="col"></div> 
             <div class="col-11">
                 <!-- Import image container here -->
-                {{> image_container}}
+                {{#each data}}
+                <div class="col img-ctn flex-column">
+                <div class="d-flex flex-row align-items-center justify-content-between">
+                <div class="d-flex">
+                <img src="/images/icons/image.svg" alt="" />
+                <p class="img-name" style="padding-left: 8px; margin: 0;">{{this.filename}}</p>
+                </div>
+                <img src="/images/icons/dots.svg" class="justify-content-end" alt="" />
+                </div>
+                <img
+                    class="uploaded-img"
+                    src={{this.filename}}
+                    style="padding-top: 10px"
+                    alt=""
+                />
+</div>
+                {{/each}}
             </div>
         </div>
 </div>
