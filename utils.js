@@ -1,12 +1,13 @@
 function convertObjectToArray(obj) {
+    if (!obj) return null;
     return Object.keys(obj).map(key => obj[key]);
 } //!
 
 function convert(obj) {
     const newObj = {
-        product: convertObjectToArray(obj.product),
-        human: convertObjectToArray(obj.human),
-        posm: convertObjectToArray(obj.posm),
+        product: obj.product? convertObjectToArray(obj.product): null,
+        human: obj.human? convertObjectToArray(obj.human): null,
+        posm: obj.posm? convertObjectToArray(obj.posm): null,
         context: obj.context
     }
 
@@ -33,16 +34,5 @@ function getBrands(converted_obj) {
     return result;
 } //*
 
-function count_Heineiken_Drinker(converted_obj) {
-    // count Heineiken beer bottle
-    let count = 0;
-    for (let i in converted_obj.product) {
-        let product = converted_obj.product[i]
-        if (product.brand === 'heineiken' && product.label === 'beer bottle') count++;
-    }
 
-    return count;
-} //*
-
-
-module.exports = { convertObjectToArray }
+module.exports = { convertObjectToArray, convert, getBrands, findBrand}

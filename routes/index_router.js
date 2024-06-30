@@ -3,6 +3,7 @@ const { compile } = require("../config/handlebars");
 const multer = require('multer');
 const Analyze = require("../models/Analyze");
 const path = require('path');
+const {convert} = require("../utils");
 
 require("dotenv").config();
 
@@ -11,7 +12,6 @@ const upload = multer({ storage: storage, limits: { fileSize: 20971520 } }).arra
 
 // Create the "files" directory if it doesn't exist
 const fs = require('fs');
-const { data } = require('jquery');
 
 const dir = './public/images/files';
 if (!fs.existsSync(dir)) {
@@ -51,15 +51,17 @@ router.get("/key_elements", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/key_elements.hbs', {
-        title: 'Key Elements', layout: 'index.hbs', data: analyze_data, filename: filename
+        title: 'Key Elements', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename, logo: getBrands(convert(analyze_data.analyze_data))
     }))
 })
 
 router.get("/count_beer_drinkers", async function (req, res, next) {
     let filename = req.query.filename;
-    let analyze_data = await Analyze.findOne({filename: filename})
+    let analyze_data = await Analyze.findOne({filename: filename});
+    console.log(analyze_data)
+    if (!analyze_data) res.status(404).send("Data not found!")
     res.status(200).send(compile('pages/count_beer_drinkers.hbs', {
-        title: 'Count Beer Drinkers', layout: 'index.hbs', data: analyze_data, filename: filename
+        title: 'Count Beer Drinkers', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename
     }))
 })
 
@@ -67,7 +69,7 @@ router.get("/detect_emotions", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/detect_emotions.hbs', {
-        title: 'Detect Emotions', layout: 'index.hbs', data: analyze_data, filename: filename
+        title: 'Detect Emotions', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename
     }))
 })
 
@@ -75,7 +77,7 @@ router.get("/track_staff", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/track_staff.hbs', {
-        title: 'Track Staff', layout: 'index.hbs', data: analyze_data, filename: filename
+        title: 'Track Staff', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename
     }))
 })
 
@@ -83,7 +85,7 @@ router.get("/grade_store_presence", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/grade_store_presence.hbs', {
-        title: 'Grade Store Presence', layout: 'index.hbs', data: analyze_data, filename: filename
+        title: 'Grade Store Presence', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename
     }))
 })
 
@@ -91,7 +93,7 @@ router.get("/detect_posm", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/detect_posm.hbs', {
-        title: 'Detect POSM', layout: 'index.hbs', data: analyze_data, filename: filename
+        title: 'Detect POSM', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename
     }))
 })
 
