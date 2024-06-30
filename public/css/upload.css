@@ -1,16 +1,17 @@
+@import "./style.css";
 .upload-container {
     text-align: center;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-    font-family: Poppins-Medium;
-    font-size: 15px;
+    font-family: medium-font;
+    font-size: 16px;
     line-height: 1.5;
     color: #666666;
     width: 100%;
     background: #e6e6e6;
     height: auto;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 .drop-zone {
