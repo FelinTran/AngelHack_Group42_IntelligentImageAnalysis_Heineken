@@ -105,17 +105,18 @@ router.post('/upload/image', async (req, res, next) => {
             next(err);
         }
     });
-
+    console.log(filePaths)
     res.status(200).json({ message: 'Files uploaded successfully', filePaths: filePaths });
 
     await fetch(' http://localhost:3000/', {
         method: 'GET',
         mode: 'no-cors',
-    }).then(data => {
-        let data_ = data.json();
+    }).then(async (data) => {
+        let data_ = await data.json();
+        console.log(filePaths[0])
         const newAnalyze = new Analyze({
-            filename: data_.filename,
-            analyze_data: data_.analyze_data
+            filename: filePaths[0],
+            analyze_data: data_
         })
 
         newAnalyze.save();
