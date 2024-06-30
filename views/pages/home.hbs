@@ -4,11 +4,10 @@
         {{> left_sidebar}}
         <div class="container">
             <div class="col"></div> 
-            <div class="col-11">
-                <!-- Import image container here -->
+            <div class="col">
                 {{#each data}}
                 {{#each this}}
-                <div class="col img-ctn flex-column">
+                <div class="img-ctn flex-column">
                     <div class="d-flex flex-row align-items-center justify-content-between">
                         <div class="d-flex">
                             <img src="/images/icons/image.svg" alt="" />
@@ -16,17 +15,13 @@
                         </div>
                         <img src="/images/icons/dots.svg" class="justify-content-end" alt="" />
                     </div>
-                    <img
-                    class="uploaded-img"
-                    src={{filename}}
-                    style="padding-top: 10px"
-                    alt=""
-                    />
+                    <img src={{filename}} class="upload-img" style="padding-top: 10px" alt=""/>
                 </div>
-                {{/each}}
-                {{/each}}
+            {{/each}}
+            {{/each}}
             </div>
         </div>
+    </div>
 </div>
 
 {{> image_modal}}
