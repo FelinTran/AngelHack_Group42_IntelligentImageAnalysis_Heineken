@@ -164,9 +164,15 @@ p {
   background: white;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: fit;
   padding: 16px 16px;
   border-radius: 10px;
+}
+
+.img-ctn img.upload-img {
+  height: 249px;
+  width: 246px;
+  object-fit: cover;
 }
 
 .logos-detect img {
