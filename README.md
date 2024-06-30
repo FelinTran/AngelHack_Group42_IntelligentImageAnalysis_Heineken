@@ -3,23 +3,27 @@ Welcome to the HEINEKEN Vietnam Brand Experience Analyzer! This project aims to 
 
 In this project, we use 4 models, of which 2 are responsible for specifically detecting cartons and people. On the other hand, we use two ZeroShot models to perform classification and detection tasks respectively.
 
-## Installation
+## Local running installation
+
+### Steps to setup
 1. Clone this repository to your local machine
 
 2. Navigate to the project directory
 
-#### 1. ExpressJS Setup
+3. Environment setup:
+
+#### Step 1. ExpressJS Setup
 ```npm i```
-#### 2. Python Setup
+#### Step 2. Python Setup
 ```pip install -r requirements.txt```
 
-## Usage
+### Usage
 Run two terminals:
 -  Expressjs: ```npm start```
 -  Python: ```python app.py```
 -  Open your web browser and visit http://localhost:5000
 
-## Testing
+### Testing
 We use Jest for testing. To run tests: Go to ```app.js```, and change the Business Problem you want to be tested in the testing route.
 E.g: 
 ```
