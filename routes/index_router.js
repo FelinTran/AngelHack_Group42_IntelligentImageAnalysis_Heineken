@@ -51,7 +51,7 @@ router.get("/key_elements", async function (req, res, next) {
     let filename = req.query.filename;
     let analyze_data = await Analyze.findOne({filename: filename})
     res.status(200).send(compile('pages/key_elements.hbs', {
-        title: 'Key Elements', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename
+        title: 'Key Elements', layout: 'index.hbs', data: convert(analyze_data.analyze_data), filename: filename, logo: getBrands(convert(analyze_data.analyze_data))
     }))
 })
 
