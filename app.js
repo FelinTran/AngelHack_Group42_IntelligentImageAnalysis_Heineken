@@ -45,6 +45,42 @@ app.get('/testing/upload', function (req, res, next) {
         layout: 'admin.hbs'
     }))
 })
+app.get("/key_elements", function (req, res, next) {
+    res.status(200).send(compile('pages/key_elements.hbs', {
+        title: 'Key Elements', layout: 'index.hbs'
+    }))
+})
+
+app.get("/count_beer_drinkers", function (req, res, next) {
+    res.status(200).send(compile('pages/count_beer_drinkers.hbs', {
+        title: 'Count Beer Drinkers', layout: 'index.hbs'
+    }))
+})
+
+app.get("/detect_emotions", function (req, res, next) {
+    res.status(200).send(compile('pages/detect_emotions.hbs', {
+        title: 'Detect Emotions', layout: 'index.hbs'
+    }))
+})
+
+app.get("/track_staff", function (req, res, next) {
+    res.status(200).send(compile('pages/track_staff.hbs', {
+        title: 'Track Staff', layout: 'index.hbs'
+    }))
+})
+
+app.get("/grade_store_presence", function (req, res, next) {
+    res.status(200).send(compile('pages/grade_store_presence.hbs', {
+        title: 'Grade Store Presence', layout: 'index.hbs'
+    }))
+})
+
+app.get("/detect_posm", function (req, res, next) {
+    res.status(200).send(compile('pages/detect_posm.hbs', {
+        title: 'Detect POSM', layout: 'index.hbs'
+    }))
+})
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
