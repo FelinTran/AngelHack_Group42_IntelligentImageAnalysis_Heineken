@@ -2,63 +2,60 @@
     <h3>Key Elements</h4>
     <div class="description d-flex flex-row align-items-start">
         <img src="/images/icons/info-circle.svg" alt="">
-        <p class="subtext ms-2">Detect POSM with Heineken’s logo to verify brand presence at a restaurant.</p>
+        <p class="subtext ms-2">Here are the image analysis results for 5 key elements.</p>
     </div>
+    {{!-- Logos --}}
     <div class="d-flex flex-row justify-content-between mt-3">
-        <p style="font-family: bold-font">Brand</p>
-        {{> brands}}
+        <p style="font-family: bold-font">Logos</p>
+        <div class="logos-detect flex-row">
+            {{#each logo}}
+                <p>7 </p>
+                <img src={{this}} alt="">
+            {{/each}}
+        </div>
     </div>
-
+    {{!-- Product --}}
     <div class="d-flex flex-row justify-content-between">
-        <p>Ice bucket</p>
+        <p style="font-family: bold-font">Product</p>
         <p>1</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
-        <p>Ice box</p>
+        <p style="sub-text">Carton box</p>
         <p>1</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
-        <p>Box</p>
+        <p style="sub-text">Beer crate</p>
         <p>1</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
-        <p>Fridge</p>
+        <p style="sub-text">Beer bottle</p>
         <p>1</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
-        <p>Box</p>
+        <p style="sub-text">Beer canned</p>
+        <p>1</p>
+    </div>
+    {{!-- Human --}}
+    <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">Human</p>
         <p>1</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
-        <p>Signage</p>
-        <p>1</p>
+        <p style="sub-text">Emotions</p>
+        <p>Happy, Angry</p>
     </div>
     <div class="d-flex flex-row justify-content-between">
-        <p>Billboard</p>
+        <p style="sub-text">Emotions</p>
+        <p>Drinking</p>
+    </div>
+    {{!-- POSM --}}
+    <div class="d-flex flex-row justify-content-between">
+        <p style="font-family: bold-font">POSM</p>
         <p>1</p>
     </div>
+    {{!-- Context --}}
     <div class="d-flex flex-row justify-content-between">
-        <p>Poster</p>
-        <p>1</p>
-    </div>
-    <div class="d-flex flex-row justify-content-between">
-        <p>Standee</p>
-        <p>1</p>
-    </div>
-    <div class="d-flex flex-row justify-content-between">
-        <p>Tent card</p>
-        <p>1</p>
-    </div>
-    <div class="d-flex flex-row justify-content-between">
-        <p>Display tent</p>
-        <p>1</p>
-    </div>
-    <div class="d-flex flex-row justify-content-between">
-        <p>Table top</p>
-        <p>1</p>
-    </div>
-    <div class="d-flex flex-row justify-content-between">
-        <p>Parasol</p>
-        <p>1</p>
+        <p style="font-family: bold-font">Context</p>
+        <p>Restaurant</p>
     </div>
 </div>
