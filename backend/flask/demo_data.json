@@ -1,0 +1,111 @@
+{
+  "product": {
+    "0": {
+      "brand": "bia viet",
+      "label": "carton box",
+      "loc": { "x1": 0, "y1": 152, "x2": 151, "y2": 274 }
+    },
+    "1": {
+      "brand": "heineken",
+      "label": "carton box",
+      "loc": { "x1": 612, "y1": 534, "x2": 727, "y2": 628 }
+    },
+    "2": {
+      "label": "beer bottle",
+      "loc": { "x1": 323, "y1": 352, "x2": 397, "y2": 596 },
+      "brand": "heineken"
+    },
+    "3": {
+      "label": "beer",
+      "loc": { "x1": 324, "y1": 353, "x2": 397, "y2": 595 },
+      "brand": "tiger"
+    },
+    "4": {
+      "label": "canned beer",
+      "loc": { "x1": 324, "y1": 353, "x2": 397, "y2": 595 },
+      "brand": "tiger"
+    },
+    "5": {
+      "label": "bottle",
+      "loc": { "x1": 324, "y1": 353, "x2": 396, "y2": 595 },
+      "brand": "tiger"
+    },
+    "6": {
+      "label": "bottle",
+      "loc": { "x1": 324, "y1": 353, "x2": 396, "y2": 595 },
+      "brand": "tiger"
+    }
+  },
+  "human": {
+    "0": {
+      "loc": { "x1": 786, "y1": 518, "x2": 949, "y2": 767 },
+      "gender": "male",
+      "action": "talking",
+      "emotion": "happy",
+      "role": "drinker"
+    },
+    "1": {
+      "loc": { "x1": 446, "y1": 404, "x2": 502, "y2": 568 },
+      "gender": "male",
+      "action": "smiling",
+      "emotion": "happy",
+      "role": "buyer"
+    },
+    "2": {
+      "loc": { "x1": 901, "y1": 508, "x2": 1023, "y2": 759 },
+      "gender": "male",
+      "action": "drinking",
+      "emotion": "happy",
+      "role": "seller"
+    },
+    "3": {
+      "loc": { "x1": 999, "y1": 459, "x2": 1018, "y2": 503 },
+      "gender": "male",
+      "action": "eating",
+      "emotion": "angry",
+      "role": "seller"
+    }
+  },
+  "posm": {
+    "0": {
+      "label": "frigde",
+      "loc": { "x1": 788, "y1": 518, "x2": 948, "y2": 765 },
+      "brand": "bia viet"
+    },
+    "1": {
+      "label": "signage",
+      "loc": { "x1": 252, "y1": 265, "x2": 723, "y2": 656 },
+      "brand": "tiger"
+    },
+    "2": {
+      "label": "billboard",
+      "loc": { "x1": 251, "y1": 265, "x2": 713, "y2": 654 },
+      "brand": "tiger"
+    },
+    "3": {
+      "label": "standee",
+      "loc": { "x1": 788, "y1": 518, "x2": 948, "y2": 765 },
+      "brand": "bia viet"
+    },
+    "4": {
+      "label": "tent card",
+      "loc": { "x1": 251, "y1": 264, "x2": 724, "y2": 656 },
+      "brand": "tiger"
+    },
+    "5": {
+      "label": "display stand",
+      "loc": { "x1": 251, "y1": 264, "x2": 720, "y2": 657 },
+      "brand": "tiger"
+    },
+    "6": {
+      "label": "tabletop",
+      "loc": { "x1": 150, "y1": 489, "x2": 217, "y2": 560 },
+      "brand": "bia viet"
+    }
+  },
+  "context": {
+    "context": "pub",
+    "action": "celebration",
+    "environment": "outdoor"
+  }
+}
